@@ -35,7 +35,7 @@ I kept ALM at the core on purpose. The Strategy page is a layer on top of the mo
 
 ## How I built it
 
-1. **Data.** [DFCU_ALM_Workbook.xlsx](data/DFCU_ALM_Workbook.xlsx) holds the financials and a monthly cash-flow ALM model: audited annual reports (FY2020–FY2025), NCUA 5300 call reports, Treasury curves, 20 rate scenarios, NII simulation, NEV, liquidity stress, policy limits and a hypothetical strategic plan. Every figure is tagged public, audited, modeled or hypothetical.
+1. **Data.** DFCU_ALM_Workbook.xlsx (see files) holds the financials and a monthly cash-flow ALM model: audited annual reports (FY2020–FY2025), NCUA 5300 call reports, Treasury curves, 20 rate scenarios, NII simulation, NEV, liquidity stress, policy limits and a hypothetical strategic plan. Every figure is tagged public, audited, modeled or hypothetical.
 2. **Data layer.** The model reads the workbook, check that the balance sheet and income statement tie to reported totals, and produce the JSON embedded in the app.
 3. **Scenario model.** The model turns the strategy assumptions into yearly cohorts of primary members, deposits, NII, interchange, ROA and net worth. The Strategy page and the AI Analyst both run on it, so their numbers always match.
 
