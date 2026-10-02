@@ -21,8 +21,6 @@ The marketing side of that is easy to get excited about. The harder question is 
 
 Every one of those assumptions is a slider on the Strategy page, so you can change them and watch deposits, NII, ROA, net worth and remaining capacity move.
 
-![Strategy tab](docs/screenshot-strategy.png)
-
 ## What's inside
 
 | Section | What it shows |
@@ -38,28 +36,9 @@ I kept ALM at the core on purpose. The Strategy page is a layer on top of the mo
 ## How I built it
 
 1. **Data.** [`data/DFCU_ALM_Workbook.xlsx`](data/DFCU_ALM_Workbook.xlsx) holds the financials and a monthly cash-flow ALM model: audited annual reports (FY2020–FY2025), NCUA 5300 call reports, Treasury curves, 20 rate scenarios, NII simulation, NEV, liquidity stress, policy limits and a hypothetical strategic plan. Every figure is tagged public, audited, modeled or hypothetical.
-2. **Data layer.** [`data/build_dashboard_data.py`](data/build_dashboard_data.py) and [`data/build_brief_data.py`](data/build_brief_data.py) read the workbook, check that the balance sheet and income statement tie to reported totals, and produce the JSON embedded in the app.
-3. **Scenario model.** `runScenario()` in [`src/App.jsx`](src/App.jsx) turns the strategy assumptions into yearly cohorts of primary members, deposits, NII, interchange, ROA and net worth. The Strategy page and the AI Analyst both run on it, so their numbers always match.
-4. **App.** React + Recharts in [`src/App.jsx`](src/App.jsx), bundled with esbuild into one self-contained `index.html`.
+2. **Data layer.** The model reads the workbook, check that the balance sheet and income statement tie to reported totals, and produce the JSON embedded in the app.
+3. **Scenario model.** The model turns the strategy assumptions into yearly cohorts of primary members, deposits, NII, interchange, ROA and net worth. The Strategy page and the AI Analyst both run on it, so their numbers always match.
 
-## Run it
-
-Open `index.html` in any browser. No install needed.
-
-To rebuild after editing `src/App.jsx`:
-
-```bash
-npm install
-npm run build   # writes index.html
-```
-
-To regenerate the data JSON from the workbook:
-
-```bash
-pip install openpyxl
-python data/build_dashboard_data.py
-python data/build_brief_data.py
-```
 
 ## Caveats
 
