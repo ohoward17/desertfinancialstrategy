@@ -1,0 +1,17 @@
+{
+  "name": "dfcu-alm-command-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Concept ALM dashboard for Desert Financial Credit Union, tied to a creative brief. Hypothetical, built from public data.",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
